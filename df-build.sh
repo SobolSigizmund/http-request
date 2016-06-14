@@ -7,7 +7,7 @@ rm -f testbuild.zip || { echo "Error: Cleaning test binaries zip"; exit 1; }
 mkdir -p target/test-classes;touch target/test-classes/placeholder.class || { echo "Error: Creating placeholder for test-classes"; exit 1; }
 echo "Zipping artifacts begin..."
 zip libs.zip $(git ls-files -o | grep -e target/dependency/.*jar) || { echo "Error: Zipping libs failed"; exit 1; }
-zip build.zip $(git ls-files -o | grep -e target/classes/.*class) || { echo "Error: Zipping binaries failed"; exit 1; }
-zip testbuild.zip $(git ls-files -o | grep -e target/test-classes/.*class) || { echo "Error: Zipping test binaries failed"; exit 1; }
+zip build.zip $(git ls-files -o | grep -e target/classes) || { echo "Error: Zipping binaries failed"; exit 1; }
+zip testbuild.zip $(git ls-files -o | grep -e target/test-classes) || { echo "Error: Zipping test binaries failed"; exit 1; }
 echo "Zipping artifacts DONE!!!"
-# Modified by Insights Service at 2016-05-03 18:50:26.592829
+# Modified by Insights Service at 2016-06-14 20:53:36.909851
